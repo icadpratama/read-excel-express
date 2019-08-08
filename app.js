@@ -50,7 +50,7 @@ app.post('/upload', function(req, res) {
         try {
             exceltojson({
                 input: req.file.path,
-                output: 'uploads/data.json',
+                output: 'data/data.json',
                 lowerCaseHeaders:true
             }, function(err,result){
                 if(err) {
