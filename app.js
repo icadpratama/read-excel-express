@@ -47,7 +47,7 @@ app.post('/upload', function(req, res) {
         } else {
             exceltojson = xlstojson;
         }
-        console.log(req.file.path);
+        
         try {
             exceltojson({
                 input: req.file.path,
