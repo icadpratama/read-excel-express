@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var multer = require('multer');
 var xlstojson = require("xls-to-json-lc");
 var xlsxtojson = require("xlsx-to-json-lc");
+var fsExtra = require('fs-extra');
 
 
 app.use(bodyParser.json());  
@@ -58,6 +59,7 @@ app.post('/upload', function(req, res) {
                 } 
                 res.json({error_code:0,err_desc:null, data: result});
             });
+            fsExtra.emptyDirSync('uploads/')
         } catch (e){
             res.json({error_code:1,err_desc:"Corupted excel file"});
         }
